@@ -43,7 +43,7 @@ func main() {
 	case "create":
 		filenames := map[string]string{}
 		for _, file := range cli.Create.Inputs {
-			filenames[file] = file
+			filenames[file] = filepath.Base(file)
 		}
 		files, err := archives.FilesFromDisk(ctx, nil, filenames)
 		if err != nil {
